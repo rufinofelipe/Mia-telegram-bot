@@ -15,6 +15,10 @@ from telegram.ext import (
     filters,
 )
 
+import sys
+import os
+sys.path.insert(0, os.path.dirname(__file__))
+
 import config
 from database import Database
 from openai_helper import OpenAIHelper
