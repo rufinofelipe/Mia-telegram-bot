@@ -5,16 +5,3 @@ services:
     build: .
     restart: always
     env_file: config/config.env
-    depends_on:
-      - mongo
-    volumes:
-      - /tmp:/tmp
-
-  mongo:
-    image: mongo:6
-    restart: always
-    volumes:
-      - mongo_data:/data/db
-
-volumes:
-  mongo_data:
