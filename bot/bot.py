@@ -378,4 +378,22 @@ def run_bot():
     app.run_polling()
 
 if __name__ == "__main__":
+    import threading
+    from http.server import HTTPServer, BaseHTTPRequestHandler
+
+    class HealthHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"OK")
+        def log_message(self, format, *args):
+            pass  # Silencia los logs del servidor
+
+    def start_health_server():
+        server = HTTPServer(("0.0.0.0", 8000), HealthHandler)
+        server.serve_forever()
+
+    thread = threading.Thread(target=start_health_server, daemon=True)
+    thread.start()
+
     run_bot()
