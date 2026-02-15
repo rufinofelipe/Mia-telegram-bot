@@ -387,13 +387,11 @@ if __name__ == "__main__":
             self.end_headers()
             self.wfile.write(b"OK")
         def log_message(self, format, *args):
-            pass  # Silencia los logs del servidor
+            pass
 
     def start_health_server():
         server = HTTPServer(("0.0.0.0", 8000), HealthHandler)
         server.serve_forever()
 
-    thread = threading.Thread(target=start_health_server, daemon=True)
-    thread.start()
-
+    threading.Thread(target=start_health_server, daemon=True).start()
     run_bot()
