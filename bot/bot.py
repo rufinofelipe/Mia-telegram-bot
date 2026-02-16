@@ -136,6 +136,7 @@ class OpenAIHelper:
         self.client = openai.AsyncOpenAI(
     api_key=OPENAI_API_KEY,
     base_url=os.getenv("OPENAI_BASE_URL", "https://api.groq.com/openai/v1"),
+)
         
 
     async def send_message(self, message: str, dialog_messages: list, system_prompt: str) -> tuple[str, int]:
