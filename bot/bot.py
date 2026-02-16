@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8355097375:AAGS1RmvuDeuyIdAK9RLH8n2fGaCPmNJzD8")
 OPENAI_API_KEY     = os.getenv("OPENAI_API_KEY", "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")
-OPENAI_MODEL       = os.getenv("OPENAI_MODEL", "gpt-4o")
+OPENAI_MODEL       = os.getenv("OPENAI_MODEL", "llama-3.3-70b-versatile")
 MAX_TOKENS         = int(os.getenv("MAX_TOKENS", "2000"))
 TEMPERATURE        = float(os.getenv("TEMPERATURE", "0.7"))
 
